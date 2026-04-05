@@ -1,0 +1,67 @@
+<!DOCTYPE html><html>
+<head>
+<title>For Raxu ❤️</title><style>
+body {
+  text-align: center;
+  background: linear-gradient(to right, #ff758c, #ff7eb3);
+  font-family: Arial;
+  color: white;
+  overflow: hidden;
+}
+#text { font-size: 26px; margin-top: 30px; }
+img { width: 250px; border-radius: 20px; margin-top: 20px; }
+button { padding: 12px 25px; margin: 10px; font-size: 18px; border-radius: 10px; border: none; }
+#no { position: absolute; }
+
+.heart {
+  position: absolute;
+  animation: float 5s linear infinite;
+}
+@keyframes float {
+  from { transform: translateY(100vh); }
+  to { transform: translateY(-10vh); opacity: 0; }
+}
+</style></head><body onclick="playMusic()"><div id="text"></div><!-- 📸 PHOTO HERE --><img src="photo.jpg"><br><button onclick="yes()">Yes 💖</button>
+<button id="no" onmouseover="move()">No 😏</button>
+
+<!-- 🎵 MUSIC HERE --><audio id="music" loop>
+  <source src="song.mp3" type="audio/mp3">
+</audio><script>
+let msg = "Raxu ❤️... Do you love Jyotu?";
+let i = 0;
+
+function type(){
+  if(i < msg.length){
+    document.getElementById("text").innerHTML += msg.charAt(i);
+    i++;
+    setTimeout(type, 80);
+  }
+}
+type();
+
+function playMusic(){
+  document.getElementById("music").play();
+}
+
+function yes(){
+  document.body.innerHTML = "<h1>I knew it Raxu 😍❤️<br>Jyotu loves you forever 💖</h1>";
+}
+
+function move(){
+  let x = Math.random()*400;
+  let y = Math.random()*400;
+  document.getElementById("no").style.left = x+"px";
+  document.getElementById("no").style.top = y+"px";
+}
+
+setInterval(()=>{
+  let heart = document.createElement("div");
+  heart.innerHTML = "💖";
+  heart.classList.add("heart");
+  heart.style.left = Math.random()*100+"vw";
+  document.body.appendChild(heart);
+
+  setTimeout(()=>heart.remove(),5000);
+},300);
+</script></body>
+</html>
